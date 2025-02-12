@@ -2,11 +2,15 @@ import React from 'react';
 import './App.css';
 import Card from './Card';
 import { cardData } from './data';
+import Footer from './Footer';
+import Header from './Header';
+import Postform from './postForm';
 
 const App = () => {
   return (
     <div className="app">
-      <h1>Blogs</h1>
+      <Header name="Parth"></Header>
+      <Postform/>
       <div className="blog-list">
         {cardData.map((card) => (
           <Card
@@ -16,6 +20,7 @@ const App = () => {
           />
         ))}
       </div>
+      <Footer name="Bloggers"></Footer>
     </div>
   );
 };

@@ -1,5 +1,4 @@
 import React from 'react';
-
 const Card = ({ title, description }) => {
   return (
     <div className="blog-card">
@@ -10,5 +9,8 @@ const Card = ({ title, description }) => {
     </div>
   );
 };
+
+
+
 
 export default Card;
