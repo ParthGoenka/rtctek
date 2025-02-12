@@ -1,0 +1,38 @@
+
+
+.app {
+    text-align: center;
+    padding: 20px;
+    background-color: rgb(235, 219, 199);
+  }
+  
+  h1 {
+    margin-bottom: 20px;
+    text-decoration: underline;
+  }
+  
+  .blog-list {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+  }
+  
+  .blog-card {
+    background-color: #b3c189;
+    padding: 20px;
+    border-radius: 8px;
+    width: 250px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  }
+  
+  .blog-card h2 {
+    font-size: 1.5rem;
+    margin-bottom: 10px;
+  }
+  
+  .blog-card p {
+    font-size: 1rem;
+    color: #555;
+  }
+  
