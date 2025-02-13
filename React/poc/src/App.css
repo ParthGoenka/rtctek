@@ -3,7 +3,7 @@
 .app {
     text-align: center;
     padding: 20px;
-    background-color: rgb(235, 219, 199);
+    background-color: rgb(255, 243, 204);
   }
   
 .postbutton{
@@ -25,10 +25,33 @@
   padding: 2px;
 }
 
+.search-btn{
+  background-color: #b3c189;
+  font:bold;
+  font-size: large;
+  border-radius: 10px;
+  border: none;
+  width: 80px;
+  height: 30px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  padding: 2px;
+  cursor: pointer;
+  margin-left: 10px;
+}
 
+.search{
+  background-color: #f4f4f3;
+  border-radius: 10px;
+  margin-bottom: 10px;
+  width: 200px;
+  height: 30px;
+  padding: 0px;
+  padding-left: 15px;
+  border: black 1.5px solid;
+}
 
   h1 {
-    margin-bottom: 25px;
+    margin-bottom: 20px;
     text-decoration: underline;
   }
   h3 {
@@ -40,7 +63,7 @@
   background-color: #f4f4f3;
   border-radius: 10px;
   margin-bottom: 10px;
-  border: none;
+  border: black 1.5px solid;
   width: 300px;
   height: 30px;
   padding: 0px;
@@ -51,12 +74,23 @@
     background-color: #f4f4f3;
     border-radius: 10px;
     margin-bottom: 10px;
-    border: none;
     width: 300px;
     height: 50px;
     padding: 0;
     padding-left: 15px;
+    border: black 1.5px solid;
     }
+
+    .postform-drop{
+      background-color: #f4f4f3;
+      border-radius: 10px;
+      margin-bottom: 10px;
+      width: 200px;
+      height: 50px;
+      padding: 0;
+      padding-left: 15px;
+      border: black 1.5px solid;
+      }
 
   .blog-list {
     display: flex;
