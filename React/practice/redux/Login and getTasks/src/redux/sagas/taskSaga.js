@@ -4,7 +4,7 @@ import axios from 'axios';
 
 function* fetchTasksSaga() {
   try {
-    const response = yield call(axios.get,'https://jsonplaceholder.typicode.com/todos');
+    const response = yield call(axios.get,'https://jsonplaceholder.typicode.com/users');
     yield put(fetchTasksSuccess(response.data));
   } catch (error) {
     yield put(fetchTasksFailure(error.message));
