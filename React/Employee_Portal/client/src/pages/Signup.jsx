@@ -16,6 +16,7 @@ export default function SignupPage() {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const [empid, setEmpid] = useState("");
+  const [dept, setDept] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
   const [error, setError] = useState("");
 
@@ -23,7 +24,7 @@ const navigate = useNavigate();
 
   const handleSubmit = async (event) => {
     event.preventDefault();
-    if (!email || !username || !password || !confirmPassword) {
+    if (!email || !username || !password || !confirmPassword || !empid || !dept) {
       setError("All fields are required");
     } else if (password !== confirmPassword) {
       setError("Passwords do not match");
@@ -33,12 +34,13 @@ const navigate = useNavigate();
         email,
         empid,
         password,
+        dept
       });
       setError("");
 
       if(res.status == 200)
       {
-        navigate("/");
+        navigate("/dashboard");
       }
     }
   };
@@ -67,6 +69,18 @@ const navigate = useNavigate();
               fullWidth
               value={username}
               onChange={(e) => setUsername(e.target.value)}
+              required
+              sx={{ height: 50, fontSize: "1.1rem" }}
+            />
+          </Box>
+
+          <Box sx={{ mb: 3 }}>
+            <TextField
+              label="Department"
+              variant="outlined"
+              fullWidth
+              value={dept}
+              onChange={(e) => setDept(e.target.value)}
               required
               sx={{ height: 50, fontSize: "1.1rem" }}
             />

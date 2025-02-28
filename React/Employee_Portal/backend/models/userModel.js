@@ -6,6 +6,11 @@ const userSchema = new mongoose.Schema({
         required: true, 
         trim: true 
     },
+    dept: {
+        type: String, 
+        required: true, 
+        trim: true 
+    },
     empid: {
         type: Number, 
         required: true, 
