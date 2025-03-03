@@ -23,7 +23,8 @@ export default function SignupPage() {
 const navigate = useNavigate();
 
   const handleSubmit = async (event) => {
-    event.preventDefault();
+    try{
+      event.preventDefault();
     if (!email || !username || !password || !confirmPassword || !empid || !dept) {
       setError("All fields are required");
     } else if (password !== confirmPassword) {
@@ -36,13 +37,21 @@ const navigate = useNavigate();
         password,
         dept
       });
-      setError("");
 
       if(res.status == 200)
       {
-        navigate("/dashboard");
+        localStorage.setItem('token', true);
+        console.log("Token saved:", localStorage.getItem('token'))
+        navigate(`/dashboard/${res.data.id}`);
       }
+      setError(""); 
+    }}
+    catch(error)
+    {
+      setError("Already exist"); 
     }
+    
+    
   };
 
   return (

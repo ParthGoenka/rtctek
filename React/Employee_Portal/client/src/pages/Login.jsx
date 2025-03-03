@@ -12,7 +12,7 @@ import axios from "axios";
 import { useNavigate } from "react-router-dom";
 
 export default function LoginPage() {
-  const [email, setEmail] = useState("");
+  const [empid, setEmpid] = useState("");
   const [password, setPassword] = useState("");
   const [error, setError] = useState("");
   const navigate = useNavigate();
@@ -20,20 +20,21 @@ export default function LoginPage() {
   const handleSubmit = async (event) => {
     event.preventDefault();
   
-    if (!email || !password) {
-      setError("Email and password are required");
+    if (!empid || !password) {
+      setError("Employee ID and password are required");
 
     } else {
 
       try {
         const res = await axios.post("http://localhost:4000/api/login", {
-          email,
+          empid,
           password,
         });
         setError(); 
         if(res.status==200)
         {
-          navigate("/dashboard");
+          localStorage.setItem('token',true);
+          navigate(`/dashboard/${res.data.id}`);
         }
 
       } catch (error) {
@@ -62,13 +63,13 @@ export default function LoginPage() {
         <form onSubmit={handleSubmit}>
           <Box sx={{ mb: 2 }}>
             <TextField
-              label="Email"
+              label="Employee ID"
               variant="outlined"
               fullWidth
-              type="email"
-              value={email}
-              onChange={(e) => setEmail(e.target.value)}
-              autoComplete="email"
+              type="text"
+              value={empid}
+              onChange={(e) => setEmpid(e.target.value)}
+              autoComplete="empid"
               required
             />
           </Box>
