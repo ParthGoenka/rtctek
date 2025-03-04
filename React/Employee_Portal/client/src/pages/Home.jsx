@@ -9,7 +9,10 @@ const Home = () => {
         <div>
             <Navbar />
             
-            <Container sx={{ paddingTop: 4, paddingBottom: 4 }}>
+            <Container sx={{ paddingTop: 4, paddingBottom: 4, height: '100vh',
+      backgroundImage: 'url(/back1.jfif)',
+      backgroundSize: 'cover', 
+      backgroundPosition: 'center',}}  >
                 <HomeDiv />
             </Container>
 

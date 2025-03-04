@@ -40,7 +40,7 @@ const navigate = useNavigate();
 
       if(res.status == 200)
       {
-        localStorage.setItem('token', true);
+        localStorage.setItem('token', res.data.id);
         console.log("Token saved:", localStorage.getItem('token'))
         navigate(`/dashboard/${res.data.id}`);
       }
@@ -63,6 +63,9 @@ const navigate = useNavigate();
         justifyContent: "center",
         alignItems: "center",
         height: "100vh",
+          backgroundImage: 'url(/back1.jfif)',
+          backgroundSize: 'cover', 
+          backgroundPosition: 'center'
       }}
     >
       <Paper elevation={3} sx={{ padding: 4, width: "100%", maxWidth: 600 }}>

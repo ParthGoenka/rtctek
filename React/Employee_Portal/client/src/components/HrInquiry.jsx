@@ -34,15 +34,18 @@ const HrInquiry = () => {
   };
 
   return (
-    <Container maxWidth="sm">
+    <Container maxWidth="md" sx={{height: '100vh',
+      backgroundImage: 'url(/back1.jfif)',
+      backgroundSize: 'cover', 
+      backgroundPosition: 'center',}}>
       <Box sx={{ mt: 6 }}>
-        <Typography variant="h4" align="center" gutterBottom>
-          HR Inquiry Form
-        </Typography>
 
         <Grid container justifyContent="center">
           <Grid item xs={12} sm={8}>
             <Paper sx={{ padding: 3, boxShadow: 3 }}>
+            <Typography variant="h4" align="center" color="secondary" gutterBottom>
+          HR Inquiry Form
+        </Typography>
               <form onSubmit={handleSubmitHrInquiry}>
                 <FormControl fullWidth margin="normal">
                   <InputLabel>Issue Type</InputLabel>

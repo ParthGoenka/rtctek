@@ -22,9 +22,10 @@ function App() {
           {/* Protected Routes */}
           <Route  element={<ProtectedRoute />}>
           <Route path="/dashboard/:id" element={<Dashboard />} /> 
+          </Route>
+          
           <Route path="/hrinquiry" element={<HrInquiry />} />
           <Route path="/referral" element={<Referral />} />
-          </Route>
         </Routes>
       </Router>
     </ThemeProvider>

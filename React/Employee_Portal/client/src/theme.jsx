@@ -6,17 +6,17 @@ const theme = createTheme({
     primary: {
       main: '#1976d2', 
     },
+    secondary: {
+      main: '#3f51b5',
+    },
     white: {
       main: '#fff', 
-    },
-    secondary: {
-      main: '#ff4081', 
     },
     error: {
       main: '#d32f2f', 
     },
     background: {
-      default: '#fafafa', 
+      main: '#fafafa', 
     },
   },
 
