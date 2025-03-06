@@ -27,8 +27,8 @@ function Task() {
   };
 
   return (
-    <main className="bg-[#f0f0f0] rounded-lg py-8" id='main'>
-  <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
+    <main className=" p-10" id='main'>
+  <div className="rounded-lg max-w-3xl mx-auto p-5 bg-[#f0f0f0]">
     <h2 className="text-5xl font-bold text-center text-black mb-8">Tasks</h2>
 
     <div className="bg-white p-6 rounded-lg shadow-lg">
