@@ -1,13 +1,17 @@
 import React from 'react'
-import Login from './components/login'
-import SignUp from './components/signup'
+import { CssBaseline, Container } from '@mui/material';
+import Navbar from './components/Navbar';
+import Hero from './components/HeroDiv';
+import Footer from './components/footer';
 
 function Home() {
   return (
-    <div className="bg-gray-300 flex gap-10 justify-center items-center mx-auto min-w-screen min-h-screen my-auto">
-        <Login/>
-        <SignUp/>
-    </div>
+    <div>
+    <CssBaseline />
+    <Navbar />
+    <Hero />
+    <Footer />
+  </div>
   )
 }
 
