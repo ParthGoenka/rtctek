@@ -4,7 +4,7 @@ import { Facebook, Twitter, LinkedIn } from '@mui/icons-material';
 
 const Footer = () => {
   return (
-    <Box sx={{ backgroundColor: '#222', color: '#fff', padding: '40px 0' }}>
+    <Box sx={{ backgroundColor: '#444', color: '#fff', padding: '40px 0' }}>
       <Container>
         <Grid container spacing={4} justifyContent="center">
           {/* About Us Section */}

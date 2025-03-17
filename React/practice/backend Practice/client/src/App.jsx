@@ -6,6 +6,7 @@ import Dashboard from './components/Dashboard';
 import ProtectedRoute from './components/ProtectedRoute';
 import Login from './components/login';
 import SignUp from './components/signup';
+import Post from './components/Post';
 
 
 
@@ -19,6 +20,7 @@ function App() {
         <Route path="/login" element={<Login />} />
         <Route path="/signup" element={<SignUp />} />
         <Route path="/Dashboard" element={<ProtectedRoute><Dashboard /></ProtectedRoute>} />
+        <Route path="/post" element={<ProtectedRoute><Post /></ProtectedRoute>} />
         
       </Routes>
     </Router>

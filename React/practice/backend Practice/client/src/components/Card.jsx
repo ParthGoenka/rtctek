@@ -1,9 +1,9 @@
 import React from 'react';
-import { Card, CardContent, CardMedia, Typography, Button } from '@mui/material';
+import { Card, CardContent, Typography, Button } from '@mui/material';
 
 const EventCard = ({ event }) => {
   return (
-    <Card sx={{ maxWidth: 345, margin: 2 }}>
+    <Card sx={{ maxWidth: 400, margin: 1 }}>
       <CardContent>
         <Typography gutterBottom variant="h5" component="div">
           {event.title}
