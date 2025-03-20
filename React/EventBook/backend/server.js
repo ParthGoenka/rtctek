@@ -36,6 +36,18 @@ const verifyToken = (req, res, next) => {
   }
 };
 
+app.post('/posts', async (req, res) => {
+  try {
+    const {title,date} = req.body;
+    const newPost = new Event({ title,date});
+
+    await newPost.save();
+    res.status(200).json({ message: 'posted' });
+  } catch (error) {
+    res.status(500).json({ message: 'Failed' });
+  }
+});
+
 app.get('/api/events', async (req, res) => {
   try {
     const events = await Event.find();  

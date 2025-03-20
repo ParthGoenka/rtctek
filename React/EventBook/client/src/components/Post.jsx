@@ -1,41 +1,33 @@
-import React, { useState } from 'react';
-import axios from 'axios';
+import React,{useState} from 'react'
 import { useNavigate } from 'react-router-dom';
 import { TextField, Button, Box, Typography, Paper } from '@mui/material';
-import { styled } from '@mui/system';
+import axios from 'axios';
 
-function Login() {
-    const [email, setEmail] = useState("");
-    const [pass, setPass] = useState("");
+function Post() {
+  const [title, setTitle] = useState("");
+    const [date, setDate] = useState("");
     const navigate = useNavigate();
 
-    const handleLogin = async () => {
-        if (!email || !pass) {
-            console.log("Required fields are missing");
-        } else {
-            try {
-                const res = await axios.post('http://localhost:4040/api/login', { email, pass });
-                
+    const handlePost = async() => {
+      try{
+      const res = await axios.post('http://localhost:4040/posts', { title, date});
+
                 if (res.status === 200) {
-                    const token = res.data.token;
-                    localStorage.setItem('token', token);
-                    if (token) {
+                    
                         navigate("/Dashboard");
-                    }
-                    console.log("successful");
-                }
-            } catch (error) {
-                console.error("Error during login:", error);
+                  
+                }}
+            
+            catch (error) {
+                console.error("Error", error);
             }
 
-            setEmail("");
-            setPass("");
-        }
-    };
-
-
-    return (
-        <Box
+            setDate("");
+            setTitle("");
+    
+    }
+  return (
+    <Box
             sx={{
                 display: 'flex',
                 justifyContent: 'center',
@@ -59,26 +51,25 @@ function Login() {
                 }}
             >
                 <Typography variant="h4" component="h1" sx={{ mb: 3, fontWeight: 'bold' }}>
-                    Login
+                    Post Details
                 </Typography>
 
                 <TextField
-                    label="Email"
+                    label="Title"
                     variant="outlined"
-                    type="email"
-                    value={email}
-                    onChange={(e) => { setEmail(e.target.value); }}
+                    type="text"
+                    value={title}
+                    onChange={(e) => { setTitle(e.target.value); }}
                     fullWidth
                     margin="normal"
                     sx={{ bgcolor: 'background.paper' }}
                 />
 
                 <TextField
-                    label="Password"
                     variant="outlined"
-                    type="password"
-                    value={pass}
-                    onChange={(e) => { setPass(e.target.value); }}
+                    type="date"
+                    value={date}
+                    onChange={(e) => { setDate(e.target.value); }}
                     fullWidth
                     margin="normal"
                     sx={{ bgcolor: 'background.paper' }}
@@ -87,7 +78,7 @@ function Login() {
                 <Button
                     variant="contained"
                     color="primary"
-                    onClick={handleLogin}
+                    onClick={handlePost}
                     sx={{
                         mt: 2,
                         width: '100%',
@@ -98,12 +89,12 @@ function Login() {
                         },
                     }}
                 >
-                    Login
+                    Post
                 </Button>
                 
             </Paper>
         </Box>
-    );
+  )
 }
 
-export default Login;
+export default Post
