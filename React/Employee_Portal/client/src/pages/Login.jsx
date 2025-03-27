@@ -19,31 +19,28 @@ export default function LoginPage() {
 
   const handleSubmit = async (event) => {
     event.preventDefault();
-  
+
     if (!empid || !password) {
       setError("Employee ID and password are required");
-
     } else {
-
       try {
         const res = await axios.post("http://localhost:4000/api/login", {
           empid,
           password,
         });
-        setError(); 
-        if(res.status==200)
-        {
-          localStorage.setItem('token',res.data.id);
+        setError();
+        if (res.status == 200) {
+          const { token } = res.data;
+          localStorage.setItem("authToken", token);
           navigate(`/dashboard/${res.data.id}`);
         }
-
       } catch (error) {
         console.error("Login failed:", error);
-        setError("Invalid credentials"); 
+        setError("Invalid credentials");
       }
     }
   };
-  
+
   return (
     <Container
       component="main"
@@ -53,9 +50,9 @@ export default function LoginPage() {
         justifyContent: "center",
         alignItems: "center",
         height: "100vh",
-          backgroundImage: 'url(/back1.jfif)',
-          backgroundSize: 'cover', 
-          backgroundPosition: 'center'
+        backgroundImage: "url(/back1.jfif)",
+        backgroundSize: "cover",
+        backgroundPosition: "center",
       }}
     >
       <Paper elevation={3} sx={{ padding: 3, width: "100%", maxWidth: 600 }}>

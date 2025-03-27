@@ -9,6 +9,7 @@ import Dashboard from "./pages/DashBoard";
 import HrInquiry from './components/HrInquiry';
 import Referral from './components/Referral';
 import ProtectedRoute from './components/ProtectedRoute'; 
+import Expert from './components/Expert';
 
 function App() {
   return (
@@ -20,12 +21,14 @@ function App() {
           <Route path="/signup" element={<SignupPage />} />
           
           {/* Protected Routes */}
-          <Route  element={<ProtectedRoute />}>
-          <Route path="/dashboard/:id" element={<Dashboard />} /> 
-          </Route>
-          
+          <Route element={<ProtectedRoute />}>
+  <Route path="/dashboard/:id" element={<Dashboard />} />
+  <Route path="/expert" element={<Expert />} />
           <Route path="/hrinquiry" element={<HrInquiry />} />
           <Route path="/referral" element={<Referral />} />
+</Route>
+          
+          
         </Routes>
       </Router>
     </ThemeProvider>

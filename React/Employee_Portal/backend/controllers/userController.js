@@ -1,5 +1,24 @@
 const User = require("../models/userModel");
 const bcrypt = require("bcrypt");
+const axios = require('axios');  // Use axios for all HTTP requests
+const jwt = require('jsonwebtoken');
+
+const protect = (req, res, next) => {
+  const token = req.header('Authorization') && req.header('Authorization').split(' ')[1];
+
+  if (!token) {
+    return res.status(401).json({ msg: 'No token, authorization denied' });
+  }
+
+  try {
+    // Verify token
+    const decoded = jwt.verify(token, "MY_SECRET");
+    req.user = decoded.id;
+    next();
+  } catch (err) {
+    res.status(401).json({ msg: 'Token is not valid' });
+  }
+};
 
 const userController = {
   signup: async (req, res) => {
@@ -24,8 +43,10 @@ const userController = {
       });
 
       await newUser.save();
-
-      return res.status(200).json({ message: "User added successfully", id:newUser.empid});
+      const token = jwt.sign({ id: empid }, "MY_SECRET", {
+        expiresIn: '1h'
+      });
+      return res.status(200).json({ message: "User added successfully", id:newUser.empid , token });
     } catch (error) {
       console.error(error);  
       res.status(500).json({ message: "Something went wrong, please try again later" });
@@ -52,20 +73,22 @@ const userController = {
         return res.status(401).json({ message: "Invalid credentials" });
       }
   
-  
-      return res.status(200).json({ message: "Login successful", id: empid });
+      const token = jwt.sign({ id: empid }, "MY_SECRET", {
+        expiresIn: '1h'
+      });
+          
+      return res.status(200).json({ message: "Login successful", id: empid, token });
   
     } catch (error) {
       console.error(error);
       return res.status(500).json({ message: "Something went wrong, please try again later" });
     }
   },
-  
 
   user: async (req, res) => {
-    const {empid} = req.params;
+    const { empid } = req.params;
     try {
-      const user = await User.findOne({empid}); 
+      const user = await User.findOne({ empid }); 
       return res.status(200).json(user);
     } catch (error) {
       console.error(error);  
@@ -73,16 +96,17 @@ const userController = {
     }
   },
 
-  users: async (req, res) => {
-    const{dept} = req.params;
+  users: [protect, async (req, res) => { 
+    const { dept } = req.params;
     try {
-      const allDept = await User.find({dept}); 
+      const allDept = await User.find({ dept }); 
       return res.status(200).json(allDept);
     } catch (error) {
       console.error(error);  
       return res.status(500).json({ message: "Something went wrong", error: error });
     }
-  },
+  }],
+
 };
 
 module.exports = userController;

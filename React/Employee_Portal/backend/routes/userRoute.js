@@ -7,4 +7,5 @@ router.post("/login",userController.login);
 router.get("/dashboard/:empid",userController.user);
 router.get("/users/:dept",userController.users);
 
+
 module.exports = router;

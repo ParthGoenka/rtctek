@@ -10,7 +10,7 @@ import { useNavigate } from "react-router-dom";
 export default function Navbar1() {
     const navigate = useNavigate();
     const handleLogout = () => {
-        localStorage.removeItem('token');
+        localStorage.removeItem('authToken');
          navigate("/login", { replace: true });
        };
 
@@ -35,6 +35,9 @@ export default function Navbar1() {
       </Button>
       <Button type="submit" variant="contained" color="primary" href="/referral" sx={{ ml: 2 }}>
         Referral Form
+      </Button>
+      <Button type="submit" variant="contained" color="primary" href="/expert" sx={{ ml: 2 }}>
+        Expert
       </Button>
       <Button
       type="button"

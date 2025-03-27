@@ -30,12 +30,20 @@ const Dashboard = () => {
   
   React.useEffect(() => {
     const fetchDashboardData = async () => {
+      const token = localStorage.getItem("authToken");
       try {
         const res = await axios.get(
-          `http://localhost:4000/api/dashboard/${params.id}`
-        );
+          `http://localhost:4000/api/dashboard/${params.id}`,{
+            headers: {
+                Authorization: `Bearer ${token}`
+            }
+      });
         const res1 = await axios.get(
-          `http://localhost:4000/api/users/${res.data.dept}`
+          `http://localhost:4000/api/users/${res.data.dept}`,{
+            headers: {
+                Authorization: `Bearer ${token}`
+            }
+      }
         );
         setDeptmem(res1.data);
         setDashdata(res.data);

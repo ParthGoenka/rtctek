@@ -40,7 +40,11 @@ const navigate = useNavigate();
 
       if(res.status == 200)
       {
-        localStorage.setItem('token', res.data.id);
+        const { token } = res.data;
+
+    localStorage.setItem('authToken', token);
+
+    axios.defaults.headers['Authorization'] = `Bearer ${token}`;
         console.log("Token saved:", localStorage.getItem('token'))
         navigate(`/dashboard/${res.data.id}`);
       }

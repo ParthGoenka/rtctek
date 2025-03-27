@@ -1,17 +1,17 @@
-import React from "react";
+import React from 'react';
 import { Navigate, Outlet } from "react-router-dom";
-import { useParams } from "react-router-dom";
+
+
 
 const ProtectedRoute = () => {
-  const Params = useParams();
-  const auth = localStorage.getItem('token');
-  if(auth == Params.id){
-  console.log("auth", auth);
-  return <Outlet /> ;
-}
-else{
-  return <Navigate to="/login" replace />
-}
+  const token = localStorage.getItem('authToken');
+ 
+    if (!token) {
+      console.log(token);
+      return <Navigate to="/login" />;
+    }
+    console.log(token)
+    return <Outlet />;
 
   
 };
