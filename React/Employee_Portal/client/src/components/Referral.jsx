@@ -9,6 +9,8 @@ import {
   Container,
 } from "@mui/material";
 import { useNavigate } from "react-router-dom";
+import Navbar1 from "./Navbar1";
+import Footer from "./Footer";
 
 const Referral = () => {
   const navigate = useNavigate();
@@ -30,11 +32,10 @@ const Referral = () => {
   };
 
   return (
-    <Container maxWidth="md" sx={{height: '100vh',
-      backgroundImage: 'url(/back1.jfif)',
-      backgroundSize: 'cover', 
-      backgroundPosition: 'center',}}>
-      <Box sx={{ mt: 4 }}>
+    <div>
+      <Navbar1/>
+      <Container maxWidth="md">
+      <Box sx={{ mt: 6, mb:6 }}>
         
 
         <Grid container spacing={4}>
@@ -88,6 +89,9 @@ const Referral = () => {
         </Grid>
       </Box>
     </Container>
+      <Footer/>
+    </div>
+    
   );
 };
 

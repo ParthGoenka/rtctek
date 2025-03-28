@@ -7,8 +7,7 @@ const theme = createTheme({
       main: '#1976d2', 
     },
     secondary: {
-      // main: '#3f51b5',
-      main: "#1976d2"
+      main: "#1956d1"
     },
     white: {
       main: '#fff', 

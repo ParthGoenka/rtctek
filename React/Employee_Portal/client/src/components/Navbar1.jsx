@@ -15,7 +15,7 @@ export default function Navbar1() {
        };
 
   return (
-      <AppBar position="sticky" color="secondary">
+      <AppBar position="sticky" color="primary">
         <Toolbar>
           <IconButton sx={{ mr: 2 }}>
             <CardMedia
@@ -29,15 +29,17 @@ export default function Navbar1() {
           <Typography variant="h6" component="div" sx={{ flexGrow: 1, color: 'white' }}>
             Employee Dashboard
           </Typography>
-      
-      <Button type="submit" variant="contained" color="primary" href="/hrinquiry">
+      <Button type="submit" variant="contained" color="secondary" href="/">
+        Home
+      </Button>
+      <Button type="submit" variant="contained" color="secondary" href="/hrinquiry" sx={{ ml: 2 }}>
         Hr Inquiry Form
       </Button>
-      <Button type="submit" variant="contained" color="primary" href="/referral" sx={{ ml: 2 }}>
+      <Button type="submit" variant="contained" color="secondary" href="/referral" sx={{ ml: 2 }}>
         Referral Form
       </Button>
-      <Button type="submit" variant="contained" color="primary" href="/expert" sx={{ ml: 2 }}>
-        Expert
+      <Button type="submit" variant="contained" color="secondary" href="/expert" sx={{ ml: 2 }}>
+        DSR
       </Button>
       <Button
       type="button"

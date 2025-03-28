@@ -14,6 +14,8 @@ import {
   Divider,
 } from "@mui/material";
 import { useNavigate } from "react-router-dom";
+import Navbar1 from "./Navbar1";
+import Footer from "./Footer";
 
 const HrInquiry = () => {
   const navigate = useNavigate();
@@ -34,11 +36,10 @@ const HrInquiry = () => {
   };
 
   return (
-    <Container maxWidth="md" sx={{height: '100vh',
-      backgroundImage: 'url(/back1.jfif)',
-      backgroundSize: 'cover', 
-      backgroundPosition: 'center',}}>
-      <Box sx={{ mt: 6 }}>
+    <div>
+      <Navbar1 />
+      <Container maxWidth="md">
+      <Box sx={{ mt: 6, mb:6 }}>
 
         <Grid container justifyContent="center">
           <Grid item xs={12} sm={8}>
@@ -91,6 +92,9 @@ const HrInquiry = () => {
         </Grid>
       </Box>
     </Container>
+    <Footer/>
+    </div>
+    
   );
 };
 

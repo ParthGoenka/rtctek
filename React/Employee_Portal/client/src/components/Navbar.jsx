@@ -10,7 +10,7 @@ import CardMedia from "@mui/material/CardMedia";
 export default function Navbar() {
   return (
     <Box sx={{ flexGrow: 1 }}>
-      <AppBar position="sticky" color="secondary">
+      <AppBar position="sticky" color="primary">
         <Toolbar>
           <IconButton sx={{ mr: 2 }}>
             <CardMedia
