@@ -89,6 +89,10 @@ const userController = {
     const { empid } = req.params;
     try {
       const user = await User.findOne({ empid }); 
+      if(!user)
+      {
+        return res.status(404).json({ message: "No user found" });
+      }
       return res.status(200).json(user);
     } catch (error) {
       console.error(error);  

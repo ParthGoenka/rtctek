@@ -138,10 +138,10 @@ const Expert = () => {
             <TextField
               fullWidth
               value={outputText}
-              contentEditable={false}
               multiline
               variant="outlined"
               sx={{ marginBottom: 2 }}
+              onChange={(e)=>{setOutputText(e.target.value)}}
             />
           </Paper>
           <Button
