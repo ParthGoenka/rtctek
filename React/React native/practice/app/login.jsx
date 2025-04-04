@@ -1,20 +1,17 @@
-import React, { useState } from 'react';
-import { Text, TextInput, Button, View, StyleSheet } from 'react-native';
+import React, { useState } from "react";
+import { Text, TextInput, Button, View, StyleSheet } from "react-native";
 
-function Login({navigation}) {
-  const [user, setUser] = useState('');
-  const [pass, setPass] = useState('');
+function Login({ navigation }) {
+  const [user, setUser] = useState("");
+  const [pass, setPass] = useState("");
 
   const handleLogin = () => {
-    if(user=="1" && pass=="a")
-    {
-      console.log('Login successful');
-    navigation.navigate("Form");
+    if (user == "1" && pass == "a") {
+      console.log("Login successful");
+      navigation.navigate("Form");
+    } else {
+      alert("Wrong or Empty credential");
     }
-    else{
-      alert("Wrong or Empty credential")
-    }
-    
   };
 
   return (
@@ -39,9 +36,14 @@ function Login({navigation}) {
           defaultValue={pass}
           secureTextEntry
         />
-        <View style={{gap:10, margin:10}}>
-      <Button title="Login" onPress={handleLogin} />
-      <Button title="SignUp" onPress={()=>{navigation.navigate("SignUp")}}  />
+        <View style={{ gap: 10, margin: 10 }}>
+          <Button title="Login" onPress={handleLogin} />
+          <Button
+            title="SignUp"
+            onPress={() => {
+              navigation.navigate("SignUp");
+            }}
+          />
         </View>
       </View>
     </View>
@@ -51,29 +53,29 @@ function Login({navigation}) {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
-    backgroundColor: '#f5f5f5',
+    justifyContent: "center",
+    alignItems: "center",
+    backgroundColor: "#f5f5f5",
     padding: 20,
   },
   inputContainer: {
     marginBottom: 20,
-    width: '100%',
+    width: "100%",
   },
   label: {
     fontSize: 16,
     marginBottom: 5,
-    fontWeight: 'bold',
-    color: '#333',
+    fontWeight: "bold",
+    color: "#333",
   },
   input: {
     height: 40,
-    borderColor: '#ccc',
+    borderColor: "#ccc",
     borderWidth: 1,
     borderRadius: 5,
     paddingLeft: 10,
     fontSize: 16,
-    backgroundColor: '#fff',
+    backgroundColor: "#fff", 
   },
 });
 
